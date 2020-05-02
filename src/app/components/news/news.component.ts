@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import * as news from '../../../assets/news.json';
+
 
 @Component({
   selector: 'app-news',
@@ -6,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./news.component.css']
 })
 export class NewsComponent implements OnInit {
+
+  news:  any  = (news  as  any).default;
+
 
   constructor() { }
 
