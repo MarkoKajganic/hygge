@@ -6,14 +6,19 @@ import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './components/login/login.component';
 import { NewsComponent } from './components/news/news.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/',
+    redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    component: HomeComponent
   },
   {
     path: 'login',
