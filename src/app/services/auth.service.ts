@@ -18,7 +18,7 @@ export class AuthService {
 
   login(email: string, password: string) {
 
-    if (email === 'admin@mail.com') {       //PREPRAVITI U JSON
+    if (email === 'admin@mail.com' && password === '12345') {
 
       return new Observable((o: Observer<any>) => {
         this.http.post('https://dummyendpoint.free.beeceptor.com', {

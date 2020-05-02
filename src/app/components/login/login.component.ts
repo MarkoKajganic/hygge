@@ -4,6 +4,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
+import { ConfirmedValidator } from './confirmed.validator';
+
 @Component({
   selector: 'app-login',
   templateUrl: 'login.component.html'
@@ -13,6 +15,7 @@ export class LoginComponent {
   loginForm: FormGroup;
   submitted = false;
 
+
   constructor(private authService: AuthService,
               private router: Router,
               private formBuilder: FormBuilder) { }
@@ -20,8 +23,11 @@ export class LoginComponent {
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.required],
-      password: ['', Validators.required]
-    });
+      password: ['', Validators.required],
+      confirm_password: ['', [Validators.required]]
+    }, { 
+      validator: ConfirmedValidator('password', 'confirm_password')
+    })
   }
 
   get f() { return this.loginForm.controls; }
