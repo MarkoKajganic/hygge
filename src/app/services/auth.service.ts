@@ -26,8 +26,8 @@ export class AuthService {
           'password': password
         }).subscribe(
           (data: { token: string, user: User }) => {
-            window.localStorage.setItem('loginToken', data.token);
-            window.localStorage.setItem('user', JSON.stringify(data.user));
+            window.localStorage.setItem('loginToken', 'true');
+            // window.localStorage.setItem('user', JSON.stringify(data.user));
 
             this.user = data.user;
             this.isAuthenticated = true;

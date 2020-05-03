@@ -8,9 +8,8 @@
         <input #email name='email' 
         		type="email"
         		formControlName="email"
-        		class="form-control" 
         		[ngClass]="{ 'is-invalid': submitted && f.email.errors }">
-        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+        <div *ngIf="submitted && f.email.errors">
             <div *ngIf="f.email.errors.required">Email is required</div>
         </div>
     </div>
@@ -22,9 +21,8 @@
         <input #password name="password" 
             	type="password" 
             	formControlName="password"
-            	class="form-control"
             	[ngClass]="{ 'is-invalid': submitted && f.password.errors }">
-        <div *ngIf="submitted && f.password.empty && f.password.invalid" class="alert alert-danger">
+        <div *ngIf="submitted && f.password.errors">
             <div *ngIf="f.password.errors.required">Password is required.</div>
         </div>
     </div>
@@ -36,61 +34,13 @@
         <input #confirm_password name="confirm_password" 
             	type="password" 
             	formControlName="confirm_password"
-            	class="form-control"
             	[ngClass]="{ 'is-invalid': submitted && f.confirm_password.errors }">
-        <div *ngIf="submitted &&f.confirm_password.touched && f.confirm_password.invalid" class="alert alert-danger">
+        <div *ngIf="submitted &&f.confirm_password.errors">
             <div *ngIf="f.confirm_password.errors.required">Confirm Password is required.</div>
             <div *ngIf="f.confirm_password.errors.confirmedValidator">Password and Confirm Password must be match.</div>
         </div>
     </div>
 
-
-
-
-
-
-
     <button type="submit" class="btn btn-primary">Login</button>
 </form>
 
-
-<!-- 
-<div class="jumbotron">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <h1>Login</h1>
-                <form [formGroup]="loginForm" (ngSubmit)="login(email.value, password.value, confirmPassword.value)">
-                   
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
-                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                            <div *ngIf="f.email.errors.required">Email is required</div>
-                            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                            <div *ngIf="f.password.errors.required">Password is required</div>
-                            <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Confirm Password</label>
-                        <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
-                        <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
-                            <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
-                            <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <button class="btn btn-primary">Login</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div> -->

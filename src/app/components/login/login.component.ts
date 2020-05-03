@@ -22,7 +22,7 @@ export class LoginComponent {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      email: ['', Validators.required],
+      email: ['', Validators.required, Validators.email],
       password: ['', Validators.required],
       confirm_password: ['', [Validators.required]]
     }, { 
@@ -32,7 +32,7 @@ export class LoginComponent {
 
   get f() { return this.loginForm.controls; }
 
-  login(email, password) {
+  login(email, password, confirm_password) {
     this.submitted = true;
     if (this.loginForm.invalid) {
       return;
@@ -49,12 +49,12 @@ export class LoginComponent {
   }
 
 
-  logout() {
-  	this.authService.logout()
-  	.subscribe(
-  		() => {
-  			this.router.navigateByUrl('/login');
-  		});
-  }
+  // logout() {
+  // 	this.authService.logout()
+  // 	.subscribe(
+  // 		() => {
+  // 			this.router.navigateByUrl('/login');
+  // 		});
+  // }
 
 }
