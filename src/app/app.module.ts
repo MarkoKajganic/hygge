@@ -13,6 +13,7 @@ import { NewsComponent } from './components/news/news.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { HomeComponent } from './components/home/home.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

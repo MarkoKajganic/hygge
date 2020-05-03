@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as news from '../../../assets/news.json';
+// import * as news from '../../../assets/news.json';    //used when fetching data from local json 
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -9,12 +10,12 @@ import * as news from '../../../assets/news.json';
 })
 export class NewsComponent implements OnInit {
 
-  news:  any  = (news  as  any).default;
+	public news: any;
 
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+ 	constructor(private route: ActivatedRoute) {}
+ 	
+	ngOnInit(): void {
+		this.news = this.route.snapshot.data['news'];
+  	}
 
 }
